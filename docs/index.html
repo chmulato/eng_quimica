@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engenharia Química — Um guia para quem sonha em transformar o mundo</title>
+<meta name="description" content="Guia vocacional de Engenharia Química para jovens. Preparado para Alexandre de Lima Mulato, de seu Pai.">
+<style>
+  :root {
+    --teal: #0E6E6B;
+    --teal-dark: #093F3E;
+    --orange: #E8762D;
+    --orange-soft: #F5A05A;
+    --cream: #FBF5EC;
+    --ink: #22303A;
+    --gray: #5A6B76;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 70%);
+    color: var(--white);
+    text-align: center;
+    padding: 4.5rem 1.5rem 3.5rem;
+    position: relative;
+  }
+  .hero::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 120px;
+    background: var(--orange);
+    margin: 1.8rem auto 0;
+    border-radius: 2px;
+  }
+  .hero .kicker {
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: .8rem;
+    color: var(--orange-soft);
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    line-height: 1.12;
+    margin: .9rem 0 .6rem;
+    font-weight: 800;
+  }
+  .hero p.sub {
+    font-size: clamp(1rem, 2.4vw, 1.25rem);
+    color: #d7ecea;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .dedication {
+    display: inline-block;
+    margin-top: 1.8rem;
+    padding: .9rem 1.6rem;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 12px;
+    font-size: .98rem;
+  }
+  .dedication strong { color: var(--orange-soft); }
+
+  .actions { margin-top: 2rem; display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.22); }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.55); }
+
+  /* ---------- Layout ---------- */
+  main { max-width: 1080px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+
+  .section-title {
+    color: var(--teal);
+    font-size: clamp(1.5rem, 3.6vw, 2rem);
+    margin-bottom: .4rem;
+  }
+  .section-rule {
+    width: 64px; height: 3px; background: var(--orange);
+    border: none; border-radius: 2px; margin-bottom: 1.8rem;
+  }
+
+  /* ---------- Cards das 10 páginas ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.4rem 1.4rem 1.2rem;
+    box-shadow: 0 3px 14px rgba(14, 110, 107, .10);
+    border-top: 4px solid var(--teal);
+    display: flex; flex-direction: column; gap: .5rem;
+  }
+  .card:nth-child(even) { border-top-color: var(--orange); }
+  .card .num {
+    font-size: .78rem; font-weight: 800; letter-spacing: .12em;
+    color: var(--orange); text-transform: uppercase;
+  }
+  .card h3 { font-size: 1.12rem; color: var(--teal-dark); line-height: 1.35; }
+  .card p { font-size: .94rem; color: var(--gray); }
+
+  /* ---------- Galeria ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .gallery figure {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(14, 110, 107, .10);
+  }
+  .gallery img {
+    width: 100%; height: 210px; object-fit: cover; display: block;
+    transition: transform .3s ease;
+  }
+  .gallery figure:hover img { transform: scale(1.03); }
+  .gallery figcaption {
+    padding: .8rem 1rem; font-size: .88rem; color: var(--gray);
+    border-top: 3px solid var(--orange-soft);
+  }
+
+  /* ---------- Download / PDF ---------- */
+  .download-panel {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    border-radius: 18px;
+    color: var(--white);
+    padding: 2.4rem 2rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem;
+    justify-content: space-between;
+  }
+  .download-panel h2 { font-size: 1.45rem; margin-bottom: .4rem; }
+  .download-panel p { color: #d7ecea; max-width: 540px; font-size: .98rem; }
+
+  .pdf-frame {
+    margin-top: 2rem;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(14, 110, 107, .10);
+    overflow: hidden;
+  }
+  .pdf-frame iframe { width: 100%; height: 78vh; border: 0; display: block; }
+  .pdf-frame .bar {
+    padding: .7rem 1.1rem; font-size: .85rem; color: var(--gray);
+    border-bottom: 1px solid #eee4d5;
+  }
+
+  section { margin-bottom: 3.6rem; }
+
+  footer {
+    background: var(--teal-dark);
+    color: #bcd9d7;
+    text-align: center;
+    padding: 2.2rem 1.25rem;
+    font-size: .9rem;
+  }
+  footer strong { color: var(--orange-soft); }
+  footer .heart { color: var(--orange); }
+
+  @media (max-width: 560px) {
+    .hero { padding: 3.2rem 1.1rem 2.8rem; }
+    .download-panel { padding: 1.8rem 1.3rem; }
+    .pdf-frame iframe { height: 62vh; }
+  }
+
+  @media print {
+    .actions, .pdf-frame, footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="kicker">Orientação vocacional &bull; 2026</span>
+  <h1>ENGENHARIA QUÍMICA</h1>
+  <p class="sub">Um guia para quem sonha em transformar o mundo — da ciência do laboratório aos produtos que mudam a vida das pessoas.</p>
+  <div class="dedication">
+    Preparado especialmente para <strong>Alexandre de Lima Mulato</strong><br>
+    com carinho, de seu Pai
+  </div>
+  <div class="actions">
+    <a class="btn btn-primary" href="../folder_engenharia_quimica_alexandre.pdf" download>
+      ⬇&nbsp; Baixar o folder (PDF)
+    </a>
+    <a class="btn btn-ghost" href="#ler">📖 Ler aqui no navegador</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- O que tem dentro -->
+  <section id="conteudo">
+    <h2 class="section-title">O que você vai encontrar</h2>
+    <hr class="section-rule">
+    <div class="grid">
+      <article class="card">
+        <span class="num">Página 1</span>
+        <h3>Você já parou para pensar?</h3>
+        <p>Celular, refrigerante, shampoo, remédio: tudo tem ciência por trás — e alguém precisou produzir em grande escala.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 2</span>
+        <h3>O que um Engenheiro Químico faz?</h3>
+        <p>De fábricas de chocolate a refinarias: planejar e melhorar processos, produzindo mais com menos desperdício.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 3</span>
+        <h3>Será que essa profissão é para mim?</h3>
+        <p>Curiosidade, disciplina e gosto por matemática e ciências. A boa notícia: ninguém nasce sabendo.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 4</span>
+        <h3>Um livro que pode mudar sua visão</h3>
+        <p><em>Os Botões de Napoleão</em> e outras leituras que mostram como moléculas mudaram a história da humanidade.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 5</span>
+        <h3>O curso e as universidades</h3>
+        <p>5 anos de graduação, principais disciplinas e o perfil da UFPR e da UTFPR no Paraná.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 6</span>
+        <h3>Onde trabalhar</h3>
+        <p>Alimentos, cosméticos, medicamentos, energia, papel e celulose: 16 setores que precisam de engenheiros químicos.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 7</span>
+        <h3>Oportunidades no Paraná</h3>
+        <p>Araucária, Paranaguá, Ponta Grossa, Londrina, Maringá e mais — e as faixas salariais da carreira.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 8</span>
+        <h3>Como se preparar desde agora</h3>
+        <p>Sete passos práticos para começar hoje: leitura, matemática, física, química e inglês.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 9</span>
+        <h3>Como será o futuro?</h3>
+        <p>Hidrogênio verde, química verde, economia circular, bioenergia e captura de carbono.</p>
+      </article>
+      <article class="card">
+        <span class="num">Página 10</span>
+        <h3>Uma mensagem para você</h3>
+        <p>Grandes profissionais começaram com dúvidas, curiosidade e sonhos — exatamente como você.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Galeria de ilustrações -->
+  <section id="ilustracoes">
+    <h2 class="section-title">Ilustrações do guia</h2>
+    <hr class="section-rule">
+    <div class="gallery">
+      <figure>
+        <img src="../imagem_01.jpg" alt="Jovem diante de uma planta industrial futurista — capa do guia" loading="lazy">
+        <figcaption>Capa — o futuro engenheiro diante do mundo que ele pode transformar.</figcaption>
+      </figure>
+      <figure>
+        <img src="../imagem_02.jpg" alt="Produtos do cotidiano conectados por moléculas" loading="lazy">
+        <figcaption>Ciência no cotidiano — do celular ao combustível.</figcaption>
+      </figure>
+      <figure>
+        <img src="../imagem_03.jpg" alt="Estudantes de engenharia analisando uma planta industrial" loading="lazy">
+        <figcaption>Aprender na prática — processos, equipes e plantas industriais.</figcaption>
+      </figure>
+      <figure>
+        <img src="../imagem_04.jpg" alt="Mapa do Paraná com ícones de indústrias" loading="lazy">
+        <figcaption>Paraná — refino, papel e celulose, agroindústria e porto.</figcaption>
+      </figure>
+      <figure>
+        <img src="../imagem_05.jpg" alt="Jovem engenheiro olhando para um futuro sustentável ao nascer do sol" loading="lazy">
+        <figcaption>O futuro — energia limpa, água tratada e novos materiais.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Download + leitura embutida -->
+  <section id="ler">
+    <div class="download-panel">
+      <div>
+        <h2>Folder completo em PDF (A4, 10 páginas)</h2>
+        <p>Pronto para impressão ou leitura no celular. Baixe o arquivo ou leia diretamente abaixo.</p>
+      </div>
+      <a class="btn btn-primary" href="../folder_engenharia_quimica_alexandre.pdf" download>
+        ⬇&nbsp; Baixar PDF
+      </a>
+    </div>
+    <div class="pdf-frame">
+      <div class="bar">📄 folder_engenharia_quimica_alexandre.pdf — 10 páginas</div>
+      <iframe src="../folder_engenharia_quimica_alexandre.pdf#view=FitH" title="Folder Engenharia Química — PDF"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>ENGENHARIA QUÍMICA</strong> — Um guia para quem sonha em transformar o mundo</p>
+  <p>Para <strong>Alexandre de Lima Mulato</strong>, com todo o carinho e orgulho <span class="heart">— de seu Pai</span> &bull; 2026</p>
+  <p>Boa jornada, futuro engenheiro! 🎓</p>
+</footer>
+
+</body>
+</html>
