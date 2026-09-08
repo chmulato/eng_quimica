@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Arquivos temporarios de QA e revisao
+_qa*.png
+_texto_pdf.txt
+_revisao*.txt
+_err.txt
+
+# SO / Editor
+Thumbs.db
+Desktop.ini
+.vscode/
